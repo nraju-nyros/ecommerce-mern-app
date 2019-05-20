@@ -1,0 +1,86 @@
+.Products{
+	list-style-type:none ; 
+	width: 236px;
+    display: inline-block;
+    vertical-align: top;
+    padding: 15px;
+}
+.ProductList{
+	list-style-type:none ; 
+	width: 246px;
+    display: inline-block;
+    vertical-align: top;
+    padding: 15px;
+}
+
+.Products_container{
+    margin-left: 45px;
+}
+
+li{
+	text-align: center;
+
+
+}
+
+
+.image:hover {
+  border: 1px solid #f2f2f2;
+}
+.add_cart{
+    background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 6px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+
+.load{
+    background-color: blue; /* Green */
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.btn1{
+   background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 6px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 3px;
+
+}
+.input_search{
+    text-align:right;
+
+}
+
+.input_search1{
+float: right;
+  padding: 6px;
+   border: 1px solid #ccc;  
+  margin-right: 16px;
+  
+  font-size: 17px;
+  width:300px;
+  border-radius: 4px;
+}
