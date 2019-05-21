@@ -2,15 +2,11 @@ import Orders from '../models/orders'
 
 
 export function createOrder(req, res){
-    
-
+    console.log('req.body.Orders',newOrders)
     var data={product_id:req.body.product_id,user_id:req.body.user_id,cart_id:req.body.cart_id,Amount:req.body.Amount}
     const newOrders = new Orders(req.body);
-    console.log('req.body.Orders',newOrders)
-
-   
-
-      Orders.create(data,(err2 , user_doc) => {
+    
+    Orders.create(data,(err2 , user_doc) => {
                   if(err2)
                   {
                     res.json({
@@ -20,17 +16,18 @@ export function createOrder(req, res){
                     });
                   }
                   else{
-                      res.json({
-                          status: 200,
-                          message: 'Add to Orders',
-                          data:user_doc
-                      });
+                    res.json({
+                      status: 200,
+                      message: 'Add to Orders',
+                      data:user_doc
+                    });
                   }
-      });
+    });
 }
 
 
 export function getOrders(req, res) {
+  console.log("getorders",getOrders)
   Orders.find().populate('product_id').populate('user_id').populate('cart_id').sort('name').exec((err2, result2) => {
     if(err2){
           res.json({
@@ -40,11 +37,13 @@ export function getOrders(req, res) {
           })
     }
     else{
-      res.json({
-          status:200,
-          message:'Orders data',
-          data:result2
+          res.json({
+            status:200,
+            message:'Orders data',
+            data:result2
        })
     }
+
+  
   });
 }
