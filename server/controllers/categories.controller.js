@@ -2,7 +2,7 @@ import Categories from '../models/categories';
 
 export function createCategory(req,res){
 	var data = {name:req.body.name,type:req.body.type}
-     const newCategories = new Categories(req.body);
+    const newCategories = new Categories(req.body);
 	console.log("req.body.categories",req.body)
 
 

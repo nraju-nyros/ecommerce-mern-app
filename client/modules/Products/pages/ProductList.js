@@ -18,7 +18,7 @@ class ProductList extends React.Component {
                    product:[],
                    cart:[],
                    post:'',
-                   clicks:'',
+                   clicks:0,
                    show:true
                    
                  };

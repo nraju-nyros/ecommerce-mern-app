@@ -1,8 +1,7 @@
 import Cart from '../models/cart';
 
-
 export function createCart(req, res){
-    
+    console.log('createCart',req.body);
 
     var data={product_id:req.body.product_id}
     const newCart = new Cart(req.body);
@@ -19,21 +18,17 @@ export function createCart(req, res){
                   }
                   else{
                       res.json({
-                          status: 200,
-                          message: 'Add products in Cart succesfully',
-                          data:user_doc
+                        status: 200,
+                        message: 'Add products in Cart succesfully',
+                        data:user_doc
                       });
                   }
-      });
+  });
 }
 
 
 export function getCart(req, res) {
-   
-  // var data={product_id:req.body.product_id,user_id:req.body.user_id,quantity:req.body.quantity,Amount:req.body.Amount}
-  //   const newCart = new Cart(req.body);
-  //   console.log('req.body.Cart',newCart)
-
+   console.log('getCart',getCart);
 
   Cart.find({}).populate('product_id').exec((err2, result2) => {
     if(err2){
@@ -44,17 +39,18 @@ export function getCart(req, res) {
           })
     } 
     else{
-      res.json({
-          status:200,
-          message:'Cart data',
-          data:result2
-       })
+          res.json({
+            status:200,
+            message:'Cart data',
+            data:result2
+          })
     }
   });
 }
 
 export function deleteCart(req, res) {
        console.log("deleteCart",deleteCart)
+       
   Cart.findOne({ _id: req.params.cart_id }).exec((err, post) => {
         if (err) {
           res.status(500).send(err);
