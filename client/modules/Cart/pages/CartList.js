@@ -5,7 +5,6 @@ import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router';
 import{getCart,fetchCart,deleteCart,deleteCartRequest} from '../CartActions';
 
 
-
 class CartList extends React.Component {
   constructor(props){
     super(props);
@@ -34,37 +33,44 @@ class CartList extends React.Component {
        console.log("cart_item_id",cart_id);
       if (confirm('Do you want to delete this product')){ 
         this.props.dispatch(deleteCartRequest(cart_id));
-      
-      }  };
-      componentDidMount() {
-    this.props.dispatch(fetchCart());
-    }
 
- 
+      
+      }  
+  };
+
+  componentDidMount() {
+    this.props.dispatch(fetchCart());
     
+  }
+     
   render(){ 
     
     var data = this.state.cart
       return <div> 
-          <h2 align="center">Cart</h2>
+          <div class="header">
+                  <a href="#default" class="logo" >Cart</a>
+          </div><br/>
         { 
           this.state.cart && this.state.cart.length > 0 ?
-          data.map((item, index) => {
-            return ( <div key={index} className="ProductList">
-                
-                { item.product_id.map((cart_item, i) => <div >
-                  <ul  key={i} className="ProductList" width="246px">
-                   <li ><img className="image" src= {cart_item.image} height="200px" width="200px"/></li>
-                <li>{cart_item.name}</li>
-                <li>{cart_item.description}</li>
-                <li><span>&#8377;</span>{cart_item.price }</li>
-                 <li><button className="btn1" onClick={()=> this.deleteCart(item._id)} >remove from cart</button></li>
-                </ul>
-                </div>)}
+          this.state.cart.map((item, index) => {
+            return ( 
+              <div key={index} className="ProductList">
+                { item.product_id.map((cart_item, i) => 
+                  <div>
+                    <ul  key={i} className="ProductList" width="246px">
+                      <li><Link to={"/cart_details/" + cart_item._id}><img className="image" src= {cart_item.image} height="200px" width="200px"/></Link></li>
+                      <li>{cart_item.name}</li>
+                      <li>{cart_item.description}</li>
+                      <li><span>&#8377;</span>{cart_item.price }</li>
+                      <li><button className="btn1" onClick={()=> this.deleteCart(item._id)} >remove from cart</button></li>
+                    </ul>
+                  </div>
+                )}
               </div>
             )
           }):'No Products'
         }
+
           <div align="center"><a href="http://10.90.90.110:8000">Back to Home</a></div>
     </div>
   }

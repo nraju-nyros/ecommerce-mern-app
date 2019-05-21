@@ -28,8 +28,6 @@ class ProductList extends React.Component {
     console.log('post',this.state.post);
   }
 
-
-
     componentDidMount() {
       this.props.dispatch(fetchProducts());
       console.log(this.props.product)
@@ -62,42 +60,44 @@ class ProductList extends React.Component {
     }
 
 
-  render(){
-      let filteredProduct = this.state.product.filter((product)=>{
-            return product.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
-      });
+    render(){
+        let filteredProduct = this.state.product.filter((product)=>{
+              return product.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+        });
 
-    return ( 
-      <div> 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"/>
-          <h1 align="center">Products</h1>
-          <div className="input_search" ><input className="input_search1" placeholder="search" value={this.state.search} onChange = {this.updateSearch.bind(this)} type="text"/>
-          </div>
-                     
-          <div id="cart">
-            <Link to={"/cartlist" }> <span className="glyphicon glyphicon-shopping-cart" Style="font-size:48px;color:green"></span></Link>
-            <i Style="font-size:30px">{ this.state.clicks } </i>
-          </div><br/>
-         
-          {  
-            this.state.product && this.state.product.length > 0 ? 
-            filteredProduct.slice(0,this.state.limit).map((product, index) =>
-              <ul key={index} className="ProductList" width="246px">
-                <li><Link to={"/product_details/" + product._id}><img className="image" src= {product.image} height="200px" width="200px"/></Link></li>
-                <li><Link to={"/product_details/" + product._id}>{product.name }</Link></li>
-                <li><span>&#8377;</span>{product.price }</li>
-                <li>{product.description }</li>
-                <li><button className="add_cart" onClick={() => this.addCart(product._id)}>Add to cart</button></li>
-              </ul>
-            ):'No products'
-          }
+      return ( 
+        <div>  
+            <div class="header">
+                <a href="#default" class="logo" >Products</a>
+            </div><br/>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"/>
+           <div className="input_search" ><input className="input_search1" placeholder="search" value={this.state.search} onChange = {this.updateSearch.bind(this)} type="text"/>
+           </div>
+
+            <div id="cart">
+              <Link to={"/cartlist" }> <span className="glyphicon glyphicon-shopping-cart" Style="font-size:48px;color:green"></span></Link>
+              <i Style="font-size:20px">{ this.state.clicks } </i>
+            </div><br/>
            
-          <div align="right"className="">
-            {this.state.limit <= this.state.product.length ?  <button  className="load" href="#" onClick={this.onLoadMore}>Load more</button> :<p>No products Available</p> }
-          </div>
-      </div>
-    );
-  }
+            {  
+              this.state.product && this.state.product.length > 0 ? 
+              filteredProduct.slice(0,this.state.limit).map((product, index) =>
+                <ul key={index} className="ProductList" width="246px">
+                  <li><Link to={"/product_details/" + product._id}><img className="image" src= {product.image} height="200px" width="200px"/></Link></li>
+                  <li><Link to={"/product_details/" + product._id}>{product.name }</Link></li>
+                  <li><span>&#8377;</span>{product.price }</li>
+                  <li>{product.description }</li>
+                  <li><button className="add_cart" onClick={() => this.addCart(product._id)}>Add to cart</button></li>
+                </ul>
+              ):'No products'
+            }
+             
+            <div align="right"className="">
+              {this.state.limit <= this.state.product.length ?  <button  className="load" href="#" onClick={this.onLoadMore}>Load more</button> :<p>No products Available</p> }
+            </div>
+        </div>
+      );
+    }
 }
 
 // Actions required to provide data for this component to render in sever side.

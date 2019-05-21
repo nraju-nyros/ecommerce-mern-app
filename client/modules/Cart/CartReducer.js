@@ -1,14 +1,8 @@
 import { ADD_CART,GET_CART,DELETE_CART } from './CartActions';
+const initialState = {  data: [],cart:[]};
 
-
-  const initialState = {  data: [],cart:[],name: "siva"};
-
-  const CartReducer = (state = initialState, action) => {
+const CartReducer = (state = initialState, action) => {
       switch (action.type) {
-       
-
-          
-
         case ADD_CART :
           return {
             ...state,
@@ -19,16 +13,27 @@ import { ADD_CART,GET_CART,DELETE_CART } from './CartActions';
           return {
             ...state,
             cart: action.cart,
-          };  
+          };
+
+        case DELETE_CART : 
+          return {
+            ...state,
+            cart: action.cart,
+            cart: state.cart.filter(cart => cart.id !== action.id),
+          };   
+
+
+      //      case DELETE_POST :
+      // return {
+      //   data: state.data.filter(post => post.cuid !== action.cuid),
+      // };
+
 
         default:
           return state;
       }
-  };
+};
 
-
-
-
-export default CarttReducer;
+export default CartReducer;
 
 

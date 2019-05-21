@@ -17,13 +17,13 @@ export function createCart(req, res){
                     });
                   }
                   else{
-                      res.json({
-                        status: 200,
-                        message: 'Add products in Cart succesfully',
-                        data:user_doc
-                      });
+                    res.json({
+                      status: 200,
+                      message: 'Add products in Cart succesfully',
+                      data:user_doc
+                    });
                   }
-  });
+    });
 }
 
 

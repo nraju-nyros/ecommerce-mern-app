@@ -5,8 +5,7 @@ export function createCategory(req,res){
     const newCategories = new Categories(req.body);
 	console.log("req.body.categories",req.body)
 
-
-	Categories.create(data,(err3,result3) => {
+  Categories.create(data,(err3,result3) => {
 		if(err3){
 			res.json({
 				status:400,

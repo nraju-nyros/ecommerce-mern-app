@@ -21,28 +21,35 @@ if (process.env.NODE_ENV !== 'production') {
   require('./modules/Products/components/Product_details');
   require('./modules/Products/pages/ProductList');
   require('./modules/Cart/pages/CartList');
+  require('./modules/Cart/components/Cart_details')
 }
 
 // react-router setup with code-splitting
 // More info: http://blog.mxstbr.com/2016/01/react-apps-with-pages/Product_details
 export default (
-  <Route path="/" component={App}>
-    <IndexRoute
-      getComponent={(nextState, cb) => {
-        require.ensure([], require => {
-          cb(null, require('./modules/Products/pages/ProductList').default);
-        });
-      }}
-    />
+    <Route path="/" component={App}>
+      <IndexRoute
+        getComponent={(nextState, cb) => {
+          require.ensure([], require => {
+            cb(null, require('./modules/Products/pages/ProductList').default);
+          });
+        }}
+      />
     
-  
-  
-
-  <Route
+    <Route
       path="/product_details/:id"
       getComponent={(nextState, cb) => {
         require.ensure([], require => {
           cb(null, require('./modules/Products/components/Product_details').default);
+        });
+      }}
+    />
+
+    <Route
+      path="/cart_details/:id"
+      getComponent={(nextState, cb) => {
+        require.ensure([], require => {
+          cb(null, require('./modules/Cart/components/Cart_details').default);
         });
       }}
     />

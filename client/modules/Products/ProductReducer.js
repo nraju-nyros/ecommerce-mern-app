@@ -1,4 +1,4 @@
-import { GET_PRODUCTS,ADD_CART,GET_CART,DELETE_CART } from './ProductActions';
+import { GET_PRODUCTS } from './ProductActions';
 
 
   const initialState = {  data: [],cart:[],name: "siva"};
@@ -12,27 +12,10 @@ import { GET_PRODUCTS,ADD_CART,GET_CART,DELETE_CART } from './ProductActions';
             name:action.post
           };
 
-          
-
-        case ADD_CART :
-          return {
-            ...state,
-             data: action.cart,
-          };
-
-        case GET_CART : 
-          return {
-            ...state,
-            cart: action.cart,
-          };  
-
         default:
           return state;
       }
   };
-
-
-
 
 export default ProductReducer;
 
