@@ -1,24 +1,13 @@
 import callApi from '../../util/apiCaller';
 
-export const GET_PRODUCTS =  'GET_PRODUCTS';
+
 export const ADD_CART = 'ADD_CART';
 export const GET_CART = 'GET_CART';
 export const DELETE_CART = 'DELETE_CART';
 
-export function getProducts(product) {
-  return {
-    type: GET_PRODUCTS,
-    product,
-  };
-}
 
-export function fetchProducts() {
-  return (dispatch) => {
-    return callApi('getProducts','post').then(res => {
-      dispatch(getProducts(res.data));
-    });
-  };
-}
+
+
 
 export function addCart(cart) {
   return {

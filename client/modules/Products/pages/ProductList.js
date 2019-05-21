@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router';
 
 // Import Actions
-import { getProducts, fetchProducts,getCart,addCart,addCartRequest } from '../ProductActions';
-//import {getCart,addCart,addCartRequest } from '../../Cart/CartActions';
+import { getProducts, fetchProducts } from '../ProductActions';
+import {getCart,addCart,addCartRequest } from '../../Cart/CartActions';
 
 
 class ProductList extends React.Component {

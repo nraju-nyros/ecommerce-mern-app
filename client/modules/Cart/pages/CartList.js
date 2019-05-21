@@ -46,7 +46,7 @@ class CartList extends React.Component {
     
     var data = this.state.cart
       return <div> 
-    
+          <h2 align="center">Cart</h2>
         { 
           this.state.cart && this.state.cart.length > 0 ?
           data.map((item, index) => {

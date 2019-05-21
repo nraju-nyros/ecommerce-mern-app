@@ -147,12 +147,12 @@ function mapStateToProps(state) {
 class Content extends React.Component {
   render() {
       return (
-        <div >  
+        <div align="center" >  
           <img className="image" src= {this.props.componentData.image} height="400px" width="400px"/>
-          <p> {this.props.componentData.name}</p>
+          <h2> {this.props.componentData.name}</h2>
           <p> {this.props.componentData.description}</p>
           <p> &#8377;{this.props.componentData.price}</p> 
-          <br/><a href='http://10.90.90.110:8000/productlist'>Back to home page</a> 
+          <br/><a href='http://10.90.90.110:8000'>Back to home page</a> 
         </div>
       );
   }
