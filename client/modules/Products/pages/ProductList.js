@@ -4,25 +4,25 @@ import { connect } from 'react-redux';
 import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router';
 
 // Import Actions
-import { getProducts, fetchProducts } from '../ProductActions';
-import {getCart,addCart,addCartRequest } from '../../Cart/CartActions';
+import { getProducts, fetchProducts,getCart,addCart,addCartRequest } from '../ProductActions';
+//import {getCart,addCart,addCartRequest } from '../../Cart/CartActions';
 
 
 class ProductList extends React.Component {
-	constructor(props){
-		super(props);
-		this.state = {
-			             limit:5,
-			             search:'',
-			             itemCount:'',
+  constructor(props){
+    super(props);
+    this.state = {
+                   limit:5,
+                   search:'',
+                   itemCount:'',
                    product:[],
                    cart:[],
                    post:'',
                    clicks:'',
                    show:true
                    
-			           };
-		this.onLoadMore = this.onLoadMore.bind(this);
+                 };
+    this.onLoadMore = this.onLoadMore.bind(this);
     this.addCart = this.addCart.bind(this);
    
     console.log('post',this.state.post);
@@ -36,10 +36,10 @@ class ProductList extends React.Component {
     }
 
     onLoadMore = () =>{
-  		this.setState({
-  			limit:this.state.limit +5
+      this.setState({
+        limit:this.state.limit +5
       });
-  	}
+    }
     
     componentWillReceiveProps(nextProps){
       if(nextProps && nextProps.product){
@@ -52,7 +52,7 @@ class ProductList extends React.Component {
     };
 
     updateSearch(event){
-    	this.setState({search:event.target.value.substr(0,20)});
+      this.setState({search:event.target.value.substr(0,20)});
     }
 
     addCart(product_id){
@@ -75,8 +75,8 @@ class ProductList extends React.Component {
           </div>
                      
           <div id="cart">
-        	  <Link to={"/cartlist" }> <span className="glyphicon glyphicon-shopping-cart" Style="font-size:48px;color:green"></span></Link>
-        	  <i Style="font-size:30px">{ this.state.clicks } </i>
+            <Link to={"/cartlist" }> <span className="glyphicon glyphicon-shopping-cart" Style="font-size:48px;color:green"></span></Link>
+            <i Style="font-size:30px">{ this.state.clicks } </i>
           </div><br/>
          
           {  

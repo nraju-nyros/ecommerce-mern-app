@@ -1,10 +1,19 @@
-import { ADD_CART,GET_CART,DELETE_CART } from './CartActions';
+import { GET_PRODUCTS,ADD_CART,GET_CART,DELETE_CART } from './CartActions';
 
 
-  const initialState = {  data: [],cart:[]};
+  const initialState = {  data: [],cart:[],name: "siva"};
 
   const CartReducer = (state = initialState, action) => {
       switch (action.type) {
+        case GET_PRODUCTS : 
+          return {
+            ...state,
+            data: action.product,
+            name:action.post
+          };
+
+          
+
         case ADD_CART :
           return {
             ...state,
@@ -17,11 +26,6 @@ import { ADD_CART,GET_CART,DELETE_CART } from './CartActions';
             cart: action.cart,
           };  
 
-        case DELETE_CART :
-          return {
-            data: state.cart.filter(post => post.cart_id !== action.cart_id),
-          };
-
         default:
           return state;
       }
@@ -30,6 +34,6 @@ import { ADD_CART,GET_CART,DELETE_CART } from './CartActions';
 
 
 
-export default CartReducer;
+export default CarttReducer;
 
 

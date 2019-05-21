@@ -16,13 +16,11 @@ if (typeof require.ensure !== 'function') {
  */
 if (process.env.NODE_ENV !== 'production') {
   // Require async routes only in development for react-hot-reloader to work.
-  
-  require('./modules/Products/pages/Products.js');
+ 
+ 
   require('./modules/Products/components/Product_details');
-  require('./modules/Products/components/ProductList');
+  require('./modules/Products/pages/ProductList');
   require('./modules/Cart/pages/CartList');
-  require('./modules/Products/pages/Product_details');
-
 }
 
 // react-router setup with code-splitting
@@ -32,19 +30,13 @@ export default (
     <IndexRoute
       getComponent={(nextState, cb) => {
         require.ensure([], require => {
-          cb(null, require('./modules/Products/components/ProductList').default);
+          cb(null, require('./modules/Products/pages/ProductList').default);
         });
       }}
     />
     
-  <Route
-      path="/products"
-      getComponent={(nextState, cb) => {
-        require.ensure([], require => {
-          cb(null, require('./modules/Products/pages/Products.js').default);
-        });
-      }}
-    />
+  
+  
 
   <Route
       path="/product_details/:id"
@@ -55,7 +47,15 @@ export default (
       }}
     />
 
-    
+    <Route
+      path="/productlist"
+      getComponent={(nextState, cb) => {
+        require.ensure([], require => {
+          cb(null, require('./modules/Products/pages/ProductList').default);
+        });
+      }}
+    />
+
     <Route
       path="/CartList"
       getComponent={(nextState, cb) => {
@@ -65,14 +65,7 @@ export default (
       }}
     />
 
-      <Route
-      path="/product_details/:id"
-      getComponent={(nextState, cb) => {
-        require.ensure([], require => {
-          cb(null, require('./modules/Products/pages/Product_details').default);
-        });
-      }}
-    />
+
    
 
     

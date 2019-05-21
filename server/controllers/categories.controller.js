@@ -1,11 +1,12 @@
 import Categories from '../models/categories';
 
 export function createCategory(req,res){
-	 console.log("req.body.categories",req.body)
-	 var data = {name:req.body.name,type:req.body.type}
+	var data = {name:req.body.name,type:req.body.type}
      const newCategories = new Categories(req.body);
-	 
-    Categories.create(data,(err3,result3) => {
+	console.log("req.body.categories",req.body)
+
+
+	Categories.create(data,(err3,result3) => {
 		if(err3){
 			res.json({
 				status:400,
@@ -26,8 +27,6 @@ export function createCategory(req,res){
 }
 
 export function getCategory(req, res) {
-	console.log("req.body.categories",req.body)
-
   Categories.find().sort('name').exec((err2, result2) => {
     if(err2){
           res.json({
