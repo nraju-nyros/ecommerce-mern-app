@@ -1,7 +1,5 @@
 import { GET_PRODUCTS } from './ProductActions';
-
-
-  const initialState = {  data: [],cart:[],name: "siva"};
+const initialState = {  data: [],cart:[],name: "siva"};
 
   const ProductReducer = (state = initialState, action) => {
       switch (action.type) {

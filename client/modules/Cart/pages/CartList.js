@@ -33,8 +33,6 @@ class CartList extends React.Component {
        console.log("cart_item_id",cart_id);
       if (confirm('Do you want to delete this product')){ 
         this.props.dispatch(deleteCartRequest(cart_id));
-
-      
       }  
   };
 

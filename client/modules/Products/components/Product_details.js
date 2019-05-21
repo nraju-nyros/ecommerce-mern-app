@@ -24,8 +24,6 @@ class Product_details extends React.Component {
                  };
     this.onLoadMore = this.onLoadMore.bind(this);
     this.addCart = this.addCart.bind(this);
-   
-    console.log('post',this.state.post);
   }
 
     componentDidMount() {
@@ -85,8 +83,6 @@ class Product_details extends React.Component {
     
   
 }
-
-
 
 Product_details.need = [() => { return fetchProducts(); }];
 

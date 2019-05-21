@@ -1,8 +1,6 @@
 import Orders from '../models/orders'
 
-
 export function createOrder(req, res){
-    
     var data={product_id:req.body.product_id,user_id:req.body.user_id,cart_id:req.body.cart_id,Amount:req.body.Amount}
     const newOrders = new Orders(req.body);
     console.log('req.body.Orders',newOrders)
@@ -28,7 +26,6 @@ export function createOrder(req, res){
 
 
 export function getOrders(req, res) {
-  
     Orders.find().populate('product_id').populate('user_id').populate('cart_id').sort('name').exec((err2, result2) => {
       if(err2){
             res.json({
@@ -38,10 +35,10 @@ export function getOrders(req, res) {
             })
       }
       else{
-          res.json({
-            status:200,
-            message:'Orders data',
-            data:result2
+            res.json({
+              status:200,
+              message:'Orders data',
+              data:result2
          })
       }
     });

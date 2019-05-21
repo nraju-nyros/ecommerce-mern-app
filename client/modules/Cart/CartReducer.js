@@ -23,12 +23,6 @@ const CartReducer = (state = initialState, action) => {
           };   
 
 
-      //      case DELETE_POST :
-      // return {
-      //   data: state.data.filter(post => post.cuid !== action.cuid),
-      // };
-
-
         default:
           return state;
       }

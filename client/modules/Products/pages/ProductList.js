@@ -24,8 +24,6 @@ class ProductList extends React.Component {
                  };
     this.onLoadMore = this.onLoadMore.bind(this);
     this.addCart = this.addCart.bind(this);
-   
-    console.log('post',this.state.post);
   }
 
     componentDidMount() {
@@ -111,7 +109,5 @@ function mapStateToProps(state) {
     
   };
 }
-
-
 
 export default connect(mapStateToProps)(ProductList);

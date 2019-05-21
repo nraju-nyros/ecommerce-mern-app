@@ -23,18 +23,13 @@ class Cart_details extends React.Component {
                  };
    
    
-    console.log('post',this.state.post);
   }
-
-
 
     componentDidMount() {
       this.props.dispatch(fetchProducts());
       console.log(this.props.product)
     }
 
-   
-    
     componentWillReceiveProps(nextProps){
       if(nextProps && nextProps.product){
           this.setState({product:nextProps.product});
