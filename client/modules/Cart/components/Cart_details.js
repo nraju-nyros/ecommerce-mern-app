@@ -21,9 +21,7 @@ class Cart_details extends React.Component {
                    show:true
                    
                  };
-   
-   
-  }
+    }
 
     componentDidMount() {
       this.props.dispatch(fetchProducts());
@@ -60,10 +58,7 @@ class Cart_details extends React.Component {
       );
     }
     
-  
 }
-
-
 
 Cart_details.need = [() => { return fetchProducts(); }];
 
@@ -75,9 +70,6 @@ function mapStateToProps(state) {
     
   };
 }
-
-         
-
 
 export default connect(mapStateToProps)(Cart_details);
 

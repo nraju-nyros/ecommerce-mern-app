@@ -95,7 +95,6 @@ function mapStateToProps(state) {
   };
 }
 
-         
 export default connect(mapStateToProps)(Product_details);
 
 
