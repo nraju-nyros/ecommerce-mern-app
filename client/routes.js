@@ -18,10 +18,10 @@ if (process.env.NODE_ENV !== 'production') {
   // Require async routes only in development for react-hot-reloader to work.
  
  
-  require('./modules/Products/components/Product_details');
+  require('./modules/Products/pages/Product_details');
   require('./modules/Products/pages/ProductList');
   require('./modules/Cart/pages/CartList');
-  require('./modules/Cart/components/Cart_details')
+  require('./modules/Cart/pages/Cart_details')
 }
 
 // react-router setup with code-splitting
@@ -40,7 +40,7 @@ export default (
       path="/product_details/:id"
       getComponent={(nextState, cb) => {
         require.ensure([], require => {
-          cb(null, require('./modules/Products/components/Product_details').default);
+          cb(null, require('./modules/Products/pages/Product_details').default);
         });
       }}
     />
@@ -49,7 +49,7 @@ export default (
       path="/cart_details/:id"
       getComponent={(nextState, cb) => {
         require.ensure([], require => {
-          cb(null, require('./modules/Cart/components/Cart_details').default);
+          cb(null, require('./modules/Cart/pages/Cart_details').default);
         });
       }}
     />
